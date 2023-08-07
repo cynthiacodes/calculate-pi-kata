@@ -18,14 +18,14 @@ result = inputNum * ()
  
 */
 
-function calculatePi(inputNum: number): number {
+export function estimatePi(inputNum: number): number {
   let oddNumArray: number[] = [];
 
   for (let oddNum = 1; oddNum < inputNum * 2; oddNum += 2) {
     oddNumArray.push(oddNum);
   }
 
-  let parameter:number = 0;
+  let parameter: number = 0;
   for (let i = 0; i < oddNumArray.length; i++) {
     if (i % 2 === 0) {
       parameter += 1 / oddNumArray[i];
@@ -33,6 +33,6 @@ function calculatePi(inputNum: number): number {
       parameter -= 1 / oddNumArray[i];
     }
   }
-  
-  return inputNum * parameter ;
+  const result = Math.floor(4 * parameter * 10000) / 10000;
+  return result;
 }
